@@ -60,14 +60,12 @@ class TestHeap(unittest.TestCase):
         self.assertEqual(test_heap.contents(), [9, 6, 8, 2, 5, 7])
         test_heap.enqueue(10)
 
-
     def test_10_perc_up(self):
         test_heap = MaxHeap()
         test_heap.build_heap([2, 9, 8, 6, 5, 7])
         test_heap.perc_up(6)
         self.assertEqual(test_heap.contents(), [9, 6, 8, 2, 5, 7])
         test_heap.enqueue(10)
-
 
     def test_11_heap_sort_ascending(self):
         test_heap = MaxHeap()
