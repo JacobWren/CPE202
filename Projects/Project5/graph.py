@@ -1,10 +1,11 @@
 from stack_array import * #Needed for Depth First Search
 from sys import argv
-#import time
 from queue_array import * #Needed for Breadth First Search
+
 
 class Vertex:
     '''Add additional helper methods if necessary.'''
+    
     def __init__(self, key):
         '''Add other attributes as necessary'''
         self.id = key
@@ -17,20 +18,22 @@ class Vertex:
     def add_right_Vert(self, right_id):
         self.adjacent_to.append(right_id)
 
-
-
+        
 class Graph:
     '''Add additional helper methods if necessary.'''
+    
     def __init__(self, filename):
         '''reads in the specification of a graph and creates a graph using an adjacency list representation.  
            You may assume the graph is not empty and is a correct specification.  E.g. each edge is 
            represented by a pair of vertices.  Note that the graph is not directed so each edge specified 
            in the input file should appear on the adjacency list of each vertex of the two vertices associated 
            with the edge.'''
+        
         self.master_id_dict = {}
         self.num_ids = 0
         self.filename = filename
 
+        
     def graph_readin(self):
         indices = []
         i = 0
@@ -43,9 +46,9 @@ class Graph:
         return indices
 
 
-
     def add_vertex(self, key):
         '''Add vertex to graph, only if the vertex is not already in the graph.'''
+        
         self.num_ids = self.num_ids + 1 # degree
         new_Vert = Vertex(key)
         self.master_id_dict[key] = new_Vert
@@ -56,18 +59,17 @@ class Graph:
         '''v1 and v2 are vertex id's. As this is an undirected graph, add an 
            edge from v1 to v2 and an edge from v2 to v1.  You can assume that
            v1 and v2 are already in the graph'''
+        
         self.master_id_dict[v1].add_right_Vert(self.master_id_dict[v2])
         self.master_id_dict[v2].deg += 1
-
-
         self.master_id_dict[v2].add_right_Vert(self.master_id_dict[v1])
         self.master_id_dict[v1].deg += 1
-
 
 
     def is_bipartite(self):
         '''Returns True if the graph is bicolorable and False otherwise.
            This method MUST use Breadth First Search logic!'''
+        
         indices = self.graph_readin()
         for i in indices:
             self.add_vertex(i[0])
@@ -113,9 +115,7 @@ class Graph:
                     self.master_id_dict[i].color = 'red'
                     self.master_id_dict[i].bool = False
                     counter += 1
-
         return True
-
 
 
     def conn_components(self):
@@ -124,6 +124,7 @@ class Graph:
         vertices (in ascending order) in the connected component represented by that list.
         The overall list will also be in ascending order based on the first item of each sublist.
         This method MUST use Depth First Search logic!'''
+        
         indices = self.graph_readin()
         for i in indices:
             self.add_vertex(i[0])
@@ -141,6 +142,7 @@ class Graph:
         r= 0
         return self.conn_components_helper(stack, path, master_list, r)
 
+    
     def conn_components_helper(self, stack, path, master_list, r):
         while not stack.is_empty():
             node = stack.pop()
@@ -166,10 +168,7 @@ class Graph:
                     return master_list
 
 '''
-start = time.time()
-g = Graph('test5.txt')
+g = Graph('test1.txt')
 print(g.conn_components())
 print(g.is_bipartite())
-end = time.time()
-print(end-start)
 '''
