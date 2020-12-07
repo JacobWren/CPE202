@@ -1,8 +1,10 @@
 class Node:
+    
     def __init__(self,item):
         self.item = item
         self.next = None  # Link; Points to the next node object in the list
 
+        
 class Queue:
     '''Implements an link-based ,efficient first-in first-out Abstract Data Type'''
 
@@ -16,15 +18,19 @@ class Queue:
 
     def is_empty(self):
         '''Returns True if the Queue is empty, and False otherwise'''
+        
         return self.num_items == 0
 
+    
     def is_full(self):
         '''Returns True if the Queue is full, and False otherwise'''
+        
         return self.num_items == self.capacity
 
     def enqueue(self, item):
         '''If Queue is not full, enqueues (adds) item to Queue 
            If Queue is full when enqueue is attempted, raises IndexError'''
+        
         if not self.is_full():
             self.num_items = self.num_items + 1
             next_Node = Node(item)  # Every time enqueue is called we instantiate a new Node object
@@ -43,10 +49,10 @@ class Queue:
     def dequeue(self):
         '''If Queue is not empty, dequeues (removes) item from Queue and returns item.
            If Queue is empty when dequeue is attempted, raises IndexError'''
+        
         if not self.is_empty():
             self.num_items = self.num_items - 1
             save = self.head.item
-            #self.previous = self.head.next
             self.head = self.head.next # 'shrinks' head
             return save
         else:
@@ -55,12 +61,8 @@ class Queue:
 
     def size(self):
         '''Returns the number of elements currently in the Queue, not the capacity'''
+        
         return self.num_items
-
-#q = Queue(5)
-#q.enqueue(0)
-#q.enqueue(1)
-#print(q.dequeue())
 
 '''
 q = Queue(5)
@@ -79,6 +81,3 @@ q.enqueue(10)
 q.enqueue(20)
 print(q.dequeue())
 '''
-q = Queue(5)
-q.enqueue(0)
-q.enqueue(1)
