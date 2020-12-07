@@ -1,6 +1,7 @@
 import unittest
 from binary_search_tree import *
 
+
 class TestLab4(unittest.TestCase):
 
     def test_simple(self):
