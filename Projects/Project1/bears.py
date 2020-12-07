@@ -16,8 +16,8 @@ def bears(n):
     if n % 5 == 0 and bears(int(n - 42)):
         return True
     # This is a quasi base case. It is equivalent to negating all of the previously defined rules.
-    # If this is run, then the path we took was a bad path so we will re trace ALL of our steps until we could have
+    # If this is run, then the path we took was a bad path so we will re-trace ALL of our steps until we could have
     # taken a different path.
     return False
-# 210, 8400, and 500
-#print(bears(500))
+
+print(bears(500))
