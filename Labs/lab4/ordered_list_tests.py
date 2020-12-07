@@ -1,6 +1,7 @@
 import unittest
 from ordered_list import *
 
+
 class TestLab4(unittest.TestCase):
 
     def test_simple(self):
