@@ -1,10 +1,11 @@
 import unittest
 from queue_array import Queue
-#from queue_linked import Queue
+
 
 class TestLab1(unittest.TestCase):
     def test_queue(self):
         '''Trivial test to ensure method names and parameters are correct'''
+        
         q = Queue(5)
         q.is_empty()
         q.is_full()
@@ -78,7 +79,6 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(q.size(), 0)
         q.enqueue(5)
         self.assertEqual(q.dequeue(), 5)
-
 
     def test_queue10(self):
         q = Queue(5)
