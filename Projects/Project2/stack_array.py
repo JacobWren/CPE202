@@ -7,16 +7,19 @@ class Stack:
         self.items = [None]*capacity
         self.num_items = 0 
 
+        
     def is_empty(self):
         '''Returns True if the stack is empty, and False otherwise
            MUST have O(1) performance'''
         return self.num_items == 0
 
+    
     def is_full(self):
         '''Returns True if the stack is full, and False otherwise
            MUST have O(1) performance'''
         return self.num_items == self.capacity
 
+    
     def push(self, item):
         '''If stack is not full, pushes item on stack. 
            If stack is full when push is attempted, raises IndexError
@@ -49,15 +52,18 @@ class Stack:
             return self.items[self.num_items-1]
         else:
             raise IndexError
+            
+            
     def size(self):
         '''Returns the number of elements currently in the stack, not the capacity
            MUST have O(1) performance'''
         return self.num_items
+    
 '''
 stack = Stack(5)
 stack.push(0)
 stack.push(1)
-#print(stack.peek())
+print(stack.peek())
 print(stack.items)
 stack.pop()
 stack.pop()
