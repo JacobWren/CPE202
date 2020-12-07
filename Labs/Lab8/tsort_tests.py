@@ -43,7 +43,6 @@ class TestTsort(unittest.TestCase):
         except ValueError as e:
             self.assertEqual(str(e), "input contains an odd number of tokens")
 
-
     def test_07(self):
         try:
             input = ['blue', 'blue']
@@ -67,9 +66,6 @@ class TestTsort(unittest.TestCase):
             self.fail()
         except ValueError as e:
             self.assertEqual(str(e), "input contains a cycle")
-
-
-
 
 
 if __name__ == "__main__":
