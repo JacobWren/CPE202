@@ -1,7 +1,7 @@
-import math
 def max_list_iter(int_list):  # must use iteration not recursion
    """finds the max of a list of numbers and returns the value (not the index)
    If int_list is empty, returns None. If list is None, raises ValueError"""
+   
    if int_list == []:
       return None
    if int_list == None:
@@ -19,7 +19,9 @@ def max_list_iter(int_list):  # must use iteration not recursion
          if int_list[i + 1] > max:
             max = int_list[i + 1]
    return max
+
 #print(max_list_iter([]))
+
 
 def reverse_rec(int_list):   # must use recursion
    """recursively reverses a list of numbers and returns the reversed list
@@ -34,35 +36,29 @@ def reverse_rec(int_list):   # must use recursion
 #print(reverse_rec([2, 1, 5, 4]))
 
 
-
 def bin_search(target, low, high, int_list):  # must use recursion
    """searches for target in int_list[low..high] and returns index if found
    If target is not found returns None. If list is None, raises ValueError """
+   
    if int_list == None:
       raise ValueError
    if int_list == []:
       return None
-   #if low > high:
-      #return None
    if low == high:
       if target == int_list[low]:
          return low
       else:
          return None # No match
-   #mid = int(math.ceil((low + high) / 2))
    mid = int((low + high) / 2)
    if target == int_list[mid]:
       return mid
    if target > int_list[mid]:
       y = mid + 1
       low = min(y, high)
-   #if target < int_list[mid]:
    else:
       x = mid - 1
       high = max(x, low)
    return bin_search(target, low, high, int_list)
-
-
 
 #print(bin_search(6, 0, 4, [1, 2, 4, 6, 7]))
 #print(bin_search(3, 0, 4, [1, 2, 4, 6, 7]))
@@ -71,12 +67,9 @@ def bin_search(target, low, high, int_list):  # must use recursion
 #x = list(range(2, 50000, 2))
 #for i in range(1, 50000, 2):
    #self.assertEqual(lab1.bin_search(i, 0, 25000, x), None)
-
 #try:
    #for i in range(1, 50000, 2):
       #bin_search(i, 0, 2498, x)
 #except RecursionError:
   # print(i)
-
-
 #print(bin_search(13, 0, 23, x))
