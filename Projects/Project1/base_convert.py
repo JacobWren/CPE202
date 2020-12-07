@@ -32,3 +32,5 @@ def convert_helper(num, b):
         return str(num)
         # need ' + str(num - ((num // b) * b))' to "get concatenation going"
     return convert_1(num // b, b) + str(num - ((num // b) * b))
+
+#print(convert(1029, 2))
