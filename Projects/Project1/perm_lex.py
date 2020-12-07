@@ -1,5 +1,6 @@
 import math
 
+
 def perm_gen_lex_list(a):
     """Generates all the permutations of the characters in a string in lexicographic order."""
     lg = len(a)
@@ -25,12 +26,14 @@ def perm_gen_lex_list(a):
             # permutations this needs to be done 'len(Output)' times
             for i in range(len(Output)):
                 p.append([x] + Output[i])
-    # This is similar to the if statements in line 23
+    # This is similar to the if statements in line 24
     if len(p) == math.factorial(lg):
         m = p
     return m
+
 #x = perm_gen_lex_list('a')
 #print(x)
+
 
 # This function is needed because we worked with lists not strings above.
 def perm_gen_lex(x):
