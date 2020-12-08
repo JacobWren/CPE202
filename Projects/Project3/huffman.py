@@ -1,4 +1,6 @@
 import time
+
+
 class HuffmanNode:
     def __init__(self, char, freq):
         self.char = char   # stored as an integer - the ASCII character code value
